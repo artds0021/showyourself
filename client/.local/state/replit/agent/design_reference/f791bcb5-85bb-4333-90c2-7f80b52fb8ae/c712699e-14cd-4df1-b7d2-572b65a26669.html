@@ -1,0 +1,609 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Yourself - Professional Bio-Data Platform</title>
+    <meta name="description" content="Upload your bio-data, build your public profile, and get visible on Google. Professional profile platform for career growth.">
+    <meta name="keywords" content="bio-data, professional profile, career, resume, public profile">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Show Yourself - Professional Bio-Data Platform">
+    <meta property="og:description" content="Upload your bio-data, build your public profile, and get visible on Google.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://showyourself.com">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Show Yourself",
+        "description": "Professional bio-data platform for creating public profiles",
+        "url": "https://showyourself.com"
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    'inter': ['Inter', 'sans-serif']
+                },
+                colors: {
+                    'primary': '#2563EB',
+                    'secondary': '#64748B',
+                    'accent': '#10B981',
+                    'background': '#F8FAFC'
+                }
+            }
+        }
+    };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .logo-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #2563EB, #10B981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="font-inter bg-background text-slate-800">
+    
+    <!-- @COMPONENT: Navigation -->
+    <nav class="bg-white shadow-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="logo-animation">
+                        <i class="fas fa-user-circle text-3xl text-primary"></i>
+                    </div>
+                    <span class="text-2xl font-bold gradient-text">Show Yourself</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#home" class="text-secondary hover:text-primary transition-colors duration-200">Home</a>
+                    <a href="#profiles" class="text-secondary hover:text-primary transition-colors duration-200">Profiles</a>
+                    <a href="#admin" class="text-secondary hover:text-primary transition-colors duration-200">Admin</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-secondary hover:text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <!-- @COMPONENT: HomePage -->
+    <section id="home" class="min-h-screen bg-gradient-to-br from-blue-50 to-emerald-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+            <div class="text-center">
+                <div class="logo-animation mb-8">
+                    <i class="fas fa-user-circle text-8xl text-primary"></i>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                    <span class="gradient-text">Show Yourself</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-secondary mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Upload your bio-data, build your public profile, and get visible on Google. 
+                    Create a professional presence that showcases your skills and achievements.
+                </p>
+                <button data-event="click:navigateToForm" class="bg-primary hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    <i class="fas fa-plus-circle mr-2"></i>
+                    Create Your Profile
+                </button>
+            </div>
+            
+            <div class="mt-20 grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-upload text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Easy Upload</h3>
+                    <p class="text-secondary">Simple form to upload your complete bio-data including profile photo and achievements.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-accent mb-4">
+                        <i class="fas fa-globe text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Public Profile</h3>
+                    <p class="text-secondary">Get your own unique URL with SEO-optimized profile page visible on Google search.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-search text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">SEO Friendly</h3>
+                    <p class="text-secondary">Optimized for search engines with proper meta tags and structured data markup.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HomePage -->
+
+    <!-- @COMPONENT: BioDataForm -->
+    <section id="bio-form" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold gradient-text mb-4">Create Your Profile</h2>
+                <p class="text-xl text-secondary">Fill in your details to create a professional public profile</p>
+            </div>
+            
+            <form class="bg-background p-8 rounded-xl shadow-lg" data-implementation="Should validate all fields and handle image upload">
+                <!-- @STATE: formData:object, errors:object, isSubmitting:boolean -->
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Full Name *</label>
+                        <input type="text" data-bind="formData.name" placeholder="John Doe" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" required>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Age</label>
+                        <input type="number" data-bind="formData.age" placeholder="25" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200">
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Email *</label>
+                        <input type="email" data-bind="formData.email" placeholder="john@example.com" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" required>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Phone</label>
+                        <input type="tel" data-bind="formData.phone" placeholder="+1 (555) 123-4567" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200">
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Address</label>
+                    <textarea data-bind="formData.address" placeholder="123 Main St, City, State, Country" rows="3" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"></textarea>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Profession *</label>
+                    <input type="text" data-bind="formData.profession" placeholder="Software Engineer" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" required>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Skills</label>
+                    <textarea data-bind="formData.skills" placeholder="JavaScript, React, Node.js, Python..." rows="3" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"></textarea>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Education</label>
+                    <textarea data-bind="formData.education" placeholder="Bachelor's in Computer Science - XYZ University (2020)" rows="3" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"></textarea>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Experience</label>
+                    <textarea data-bind="formData.experience" placeholder="Senior Developer at ABC Corp (2021-Present)" rows="4" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"></textarea>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Achievements</label>
+                    <textarea data-bind="formData.achievements" placeholder="Led team of 5 developers, Increased performance by 40%..." rows="3" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"></textarea>
+                </div>
+                
+                <div class="mb-8">
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Profile Photo</label>
+                    <div class="border-2 border-dashed border-slate-300 rounded-lg p-6 text-center hover:border-primary transition-colors duration-200">
+                        <input type="file" accept="image/*" data-bind="formData.photo" class="hidden" id="photo-upload">
+                        <label for="photo-upload" class="cursor-pointer">
+                            <i class="fas fa-cloud-upload-alt text-4xl text-slate-400 mb-2"></i>
+                            <p class="text-slate-600">Click to upload or drag and drop</p>
+                            <p class="text-sm text-slate-500">PNG, JPG up to 5MB</p>
+                        </label>
+                    </div>
+                    <!-- @FUNCTIONALITY: Should handle file upload, validation, and preview -->
+                </div>
+                
+                <button type="submit" data-event="click:handleSubmit" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl">
+                    <i class="fas fa-user-plus mr-2"></i>
+                    Create Profile
+                </button>
+                
+                <!-- TODO: Implement form validation, file upload handling, and profile creation -->
+            </form>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: BioDataForm -->
+
+    <!-- @COMPONENT: ProfilePage -->
+    <section id="profile-example" class="py-16 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold gradient-text mb-4">Profile Preview</h2>
+                <p class="text-xl text-secondary">Example of how your profile will look</p>
+            </div>
+            
+            <!-- Example Profile -->
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden" data-mock="true">
+                <!-- Schema.org Person Markup would be added here -->
+                <script type="application/ld+json" data-mock="true">
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Person",
+                    "name": "John Doe",
+                    "jobTitle": "Software Engineer",
+                    "email": "john@example.com",
+                    "telephone": "+1-555-123-4567"
+                }
+                </script>
+                
+                <div class="bg-gradient-to-r from-primary to-accent p-8 text-white">
+                    <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+                        <!-- Professional headshot of a software engineer in business casual attire -->
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300" 
+                             alt="John Doe - Software Engineer" 
+                             class="w-32 h-32 rounded-full border-4 border-white shadow-lg object-cover" 
+                             data-mock-image="true" 
+                             data-implementation="Display user uploaded photo">
+                        
+                        <div class="text-center md:text-left">
+                            <h1 class="text-4xl font-bold mb-2" data-bind="profile.name">John Doe</h1>
+                            <p class="text-xl opacity-90 mb-2" data-bind="profile.profession">Software Engineer</p>
+                            <p class="opacity-80" data-bind="profile.email">john@example.com</p>
+                            <p class="opacity-80" data-bind="profile.phone">+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-semibold text-slate-800 mb-4 flex items-center">
+                                <i class="fas fa-user mr-2 text-primary"></i>
+                                Personal Information
+                            </h3>
+                            <div class="space-y-3">
+                                <div>
+                                    <span class="font-medium text-slate-600">Age:</span>
+                                    <span class="ml-2" data-bind="profile.age">28</span>
+                                </div>
+                                <div>
+                                    <span class="font-medium text-slate-600">Address:</span>
+                                    <span class="ml-2" data-bind="profile.address">San Francisco, CA, USA</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold text-slate-800 mb-4 flex items-center">
+                                <i class="fas fa-cogs mr-2 text-primary"></i>
+                                Skills
+                            </h3>
+                            <div class="flex flex-wrap gap-2" data-bind="profile.skills">
+                                <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">JavaScript</span>
+                                <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">React</span>
+                                <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Node.js</span>
+                                <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Python</span>
+                                <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-4 flex items-center">
+                            <i class="fas fa-graduation-cap mr-2 text-primary"></i>
+                            Education
+                        </h3>
+                        <p class="text-slate-700" data-bind="profile.education">Bachelor's degree in Computer Science from Stanford University (2018)</p>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-4 flex items-center">
+                            <i class="fas fa-briefcase mr-2 text-primary"></i>
+                            Experience
+                        </h3>
+                        <div class="text-slate-700" data-bind="profile.experience">
+                            <p class="mb-3"><strong>Senior Software Engineer</strong> at TechCorp Inc. (2021 - Present)</p>
+                            <p class="mb-3"><strong>Software Engineer</strong> at StartupXYZ (2019 - 2021)</p>
+                            <p><strong>Junior Developer</strong> at WebSolutions (2018 - 2019)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-4 flex items-center">
+                            <i class="fas fa-trophy mr-2 text-primary"></i>
+                            Achievements
+                        </h3>
+                        <ul class="text-slate-700 space-y-2" data-bind="profile.achievements">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-accent mr-2 mt-1"></i>
+                                Led a team of 5 developers in building a scalable e-commerce platform
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-accent mr-2 mt-1"></i>
+                                Improved application performance by 40% through optimization
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-accent mr-2 mt-1"></i>
+                                Published 3 technical articles with over 10K views
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <p class="text-slate-600">Profile URL: <span class="font-mono bg-slate-100 px-2 py-1 rounded">showyourself.com/profile/john-doe</span></p>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ProfilePage -->
+
+    <!-- @COMPONENT: AdminPanel -->
+    <section id="admin" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold gradient-text mb-4">Admin Panel</h2>
+                <p class="text-xl text-secondary">Manage uploaded profiles and monitor platform activity</p>
+            </div>
+            
+            <div class="bg-background rounded-xl shadow-lg p-6">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4 md:mb-0">Profile Management</h3>
+                    <div class="flex space-x-4">
+                        <button class="bg-accent hover:bg-emerald-700 text-white px-4 py-2 rounded-lg transition-colors duration-200">
+                            <i class="fas fa-download mr-2"></i>
+                            Export Data
+                        </button>
+                        <button class="bg-primary hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200">
+                            <i class="fas fa-sync-alt mr-2"></i>
+                            Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Admin Stats -->
+                <div class="grid md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-3xl font-bold text-primary" data-bind="stats.totalProfiles">127</div>
+                        <div class="text-slate-600">Total Profiles</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-3xl font-bold text-accent" data-bind="stats.activeProfiles">124</div>
+                        <div class="text-slate-600">Active Profiles</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-3xl font-bold text-yellow-600" data-bind="stats.pendingReview">3</div>
+                        <div class="text-slate-600">Pending Review</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-3xl font-bold text-red-600" data-bind="stats.reportedProfiles">0</div>
+                        <div class="text-slate-600">Reported</div>
+                    </div>
+                </div>
+                
+                <!-- Profiles Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full bg-white rounded-lg shadow-md overflow-hidden">
+                        <thead class="bg-slate-100">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Profile</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Profession</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Created</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200" data-mock="true">
+                            <!-- @MAP: profiles.map(profile => ( -->
+                            <tr class="hover:bg-slate-50 transition-colors duration-200">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <!-- Professional headshot for admin table -->
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100" 
+                                             alt="Profile" 
+                                             class="w-10 h-10 rounded-full object-cover">
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-slate-900" data-bind="profile.name">John Doe</div>
+                                            <div class="text-sm text-slate-500" data-bind="profile.email">john@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-slate-900" data-bind="profile.profession">Software Engineer</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-slate-900" data-bind="profile.createdAt">2024-01-15</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800" data-bind="profile.status">Active</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm space-x-2">
+                                    <button class="text-primary hover:text-blue-700 transition-colors duration-200" data-event="click:viewProfile">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-yellow-600 hover:text-yellow-700 transition-colors duration-200" data-event="click:editProfile">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-700 transition-colors duration-200" data-event="click:deleteProfile">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- @END_MAP )) -->
+                            
+                            <!-- Additional sample rows -->
+                            <tr class="hover:bg-slate-50 transition-colors duration-200" data-mock="true">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <!-- Professional business woman headshot -->
+                                        <img src="https://pixabay.com/get/g9ea4b3d57d6ffad7c624057d9f9a141e670f63febb2d6cb3164eedf3ec5070d65835e59a5d62addfb848a9c0d7faeea90949b98a3d88f514f1cf8431762589b0_1280.jpg" 
+                                             alt="Profile" 
+                                             class="w-10 h-10 rounded-full object-cover">
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-slate-900">Sarah Johnson</div>
+                                            <div class="text-sm text-slate-500">sarah@example.com</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-slate-900">Marketing Manager</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-slate-900">2024-01-12</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm space-x-2">
+                                    <button class="text-primary hover:text-blue-700 transition-colors duration-200">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-yellow-600 hover:text-yellow-700 transition-colors duration-200">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-700 transition-colors duration-200">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- TODO: Implement admin functionality for profile management, moderation, and analytics -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: AdminPanel -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-slate-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <i class="fas fa-user-circle text-2xl text-primary"></i>
+                        <span class="text-xl font-bold">Show Yourself</span>
+                    </div>
+                    <p class="text-slate-300 mb-4">
+                        Professional bio-data platform for creating SEO-optimized public profiles. 
+                        Build your online presence and get discovered by opportunities.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-slate-400 hover:text-white transition-colors duration-200">Home</a></li>
+                        <li><a href="#bio-form" class="text-slate-400 hover:text-white transition-colors duration-200">Create Profile</a></li>
+                        <li><a href="#profiles" class="text-slate-400 hover:text-white transition-colors duration-200">Browse Profiles</a></li>
+                        <li><a href="#admin" class="text-slate-400 hover:text-white transition-colors duration-200">Admin</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Help Center</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Privacy Policy</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Terms of Service</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors duration-200">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
+                <p>&copy; 2024 Show Yourself. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // Simple navigation and form interactions
+        (function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // File upload preview functionality
+            const fileInput = document.getElementById('photo-upload');
+            if (fileInput) {
+                fileInput.addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            // TODO: Implement image preview functionality
+                            console.log('File selected:', file.name);
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+
+            // Form submission handling
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement form validation and submission
+                    console.log('Form submitted');
+                });
+            }
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('.md\\:hidden button');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', function() {
+                    // TODO: Implement mobile menu toggle
+                    console.log('Mobile menu toggled');
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

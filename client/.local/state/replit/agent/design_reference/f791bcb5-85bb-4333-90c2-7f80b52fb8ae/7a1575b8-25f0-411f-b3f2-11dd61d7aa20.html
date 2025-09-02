@@ -1,0 +1,951 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Yourself - Upload Bio-Data & Build Your Public Profile</title>
+    <meta name="description" content="Upload your bio-data, build your public profile, and get visible on Google. Create professional profiles that are SEO-optimized and searchable.">
+    <meta name="keywords" content="bio-data, profile, resume, professional, SEO, public profile">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Show Yourself - Upload Bio-Data & Build Your Public Profile">
+    <meta property="og:description" content="Upload your bio-data, build your public profile, and get visible on Google.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://showyourself.com">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Show Yourself",
+      "description": "Upload your bio-data, build your public profile, and get visible on Google",
+      "url": "https://showyourself.com"
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    'inter': ['Inter', 'sans-serif'],
+                },
+                colors: {
+                    'primary': '#2563EB',
+                    'secondary': '#64748B',
+                    'success': '#10B981',
+                }
+            }
+        }
+    };
+    </script>
+
+    <style>
+        .logo-animation {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .form-floating {
+            position: relative;
+        }
+        
+        .form-floating input,
+        .form-floating textarea,
+        .form-floating select {
+            height: 56px;
+            padding: 16px 12px 0 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.2s;
+        }
+        
+        .form-floating textarea {
+            height: auto;
+            min-height: 80px;
+            padding-top: 20px;
+            resize: vertical;
+        }
+        
+        .form-floating label {
+            position: absolute;
+            top: 16px;
+            left: 12px;
+            color: #64748b;
+            transition: all 0.2s;
+            pointer-events: none;
+            font-size: 16px;
+        }
+        
+        .form-floating input:focus,
+        .form-floating textarea:focus,
+        .form-floating select:focus {
+            border-color: #2563EB;
+        }
+        
+        .form-floating input:focus + label,
+        .form-floating textarea:focus + label,
+        .form-floating select:focus + label,
+        .form-floating input:not(:placeholder-shown) + label,
+        .form-floating textarea:not(:placeholder-shown) + label,
+        .form-floating select:not([value=""]) + label {
+            top: 4px;
+            font-size: 12px;
+            color: #2563EB;
+            font-weight: 500;
+        }
+        
+        .hide-section {
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-50 text-gray-900">
+
+<!-- @COMPONENT: Header Navigation -->
+<header class="bg-white shadow-sm border-b">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center space-x-4">
+                <div class="logo-animation">
+                    <h1 class="text-2xl font-bold text-primary">
+                        <i class="fas fa-user-circle mr-2"></i>Show Yourself
+                    </h1>
+                </div>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" data-section="homepage" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Home</a>
+                <a href="#" data-section="create-profile" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Create Profile</a>
+                <a href="#" data-section="sample-profile" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Sample Profile</a>
+                <a href="#" data-section="admin-panel" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Admin</a>
+            </nav>
+            <div class="md:hidden">
+                <button class="mobile-menu-toggle text-gray-700 hover:text-primary">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden py-4 border-t">
+            <div class="flex flex-col space-y-4">
+                <a href="#" data-section="homepage" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Home</a>
+                <a href="#" data-section="create-profile" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Create Profile</a>
+                <a href="#" data-section="sample-profile" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Sample Profile</a>
+                <a href="#" data-section="admin-panel" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Admin</a>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- @END_COMPONENT: Header Navigation -->
+
+<!-- @COMPONENT: Homepage Section -->
+<section id="homepage" class="section">
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-br from-blue-50 to-indigo-100 py-20 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="logo-animation mb-8">
+                    <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+                        <i class="fas fa-user-circle text-primary mr-4"></i>
+                        Show Yourself
+                    </h1>
+                </div>
+                <p class="text-xl lg:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Upload your bio-data, build your public profile, and get visible on Google
+                </p>
+                <p class="text-lg text-gray-500 mb-10 max-w-2xl mx-auto">
+                    Create a professional online presence that's SEO-optimized and searchable. 
+                    Showcase your skills, experience, and achievements to the world.
+                </p>
+                <button data-section="create-profile" class="create-profile-btn bg-primary hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    <i class="fas fa-plus-circle mr-2"></i>Create Your Profile
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Why Choose Show Yourself?</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Build a professional online presence that gets noticed by employers and clients
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-8 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-search text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">SEO Optimized</h3>
+                    <p class="text-gray-600">Your profile will be indexed by Google and easily discoverable by potential employers and clients.</p>
+                </div>
+                
+                <div class="text-center p-8 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-success rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Mobile Friendly</h3>
+                    <p class="text-gray-600">Your profile looks perfect on all devices - desktop, tablet, and mobile.</p>
+                </div>
+                
+                <div class="text-center p-8 bg-gray-50 rounded-xl hover:shadow-lg transition-shadow">
+                    <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-bolt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Setup</h3>
+                    <p class="text-gray-600">Create your professional profile in minutes with our easy-to-use form.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="py-20 bg-primary">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
+            <p class="text-xl text-blue-100 mb-8">Join thousands of professionals who have already created their online presence</p>
+            <button data-section="create-profile" class="create-profile-btn bg-white text-primary hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                Create Your Profile Now
+            </button>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: Homepage Section -->
+
+<!-- @COMPONENT: Bio-data Submission Form Section -->
+<section id="create-profile" class="section hide-section">
+    <div class="min-h-screen bg-gray-50 py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="text-center mb-10">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-4">Create Your Professional Profile</h1>
+                    <p class="text-lg text-gray-600">Fill out the form below to create your SEO-optimized public profile</p>
+                </div>
+
+                <form id="bio-data-form" class="space-y-8">
+                    <!-- Personal Information -->
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+                            <i class="fas fa-user text-primary mr-2"></i>Personal Information
+                        </h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="form-floating">
+                                <input type="text" id="name" name="name" placeholder=" " required data-bind="user.name">
+                                <label for="name">Full Name *</label>
+                            </div>
+                            
+                            <div class="form-floating">
+                                <input type="number" id="age" name="age" placeholder=" " required data-bind="user.age">
+                                <label for="age">Age *</label>
+                            </div>
+                            
+                            <div class="form-floating">
+                                <input type="email" id="email" name="email" placeholder=" " required data-bind="user.email">
+                                <label for="email">Email Address *</label>
+                            </div>
+                            
+                            <div class="form-floating">
+                                <input type="tel" id="phone" name="phone" placeholder=" " required data-bind="user.phone">
+                                <label for="phone">Phone Number *</label>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <div class="form-floating">
+                                <textarea id="address" name="address" placeholder=" " required data-bind="user.address"></textarea>
+                                <label for="address">Address *</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Professional Information -->
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+                            <i class="fas fa-briefcase text-primary mr-2"></i>Professional Information
+                        </h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="form-floating">
+                                <input type="text" id="profession" name="profession" placeholder=" " required data-bind="user.profession">
+                                <label for="profession">Profession/Job Title *</label>
+                            </div>
+                            
+                            <div class="form-floating">
+                                <input type="text" id="skills" name="skills" placeholder=" " required data-bind="user.skills">
+                                <label for="skills">Skills (comma separated) *</label>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <div class="form-floating">
+                                <textarea id="experience" name="experience" placeholder=" " rows="4" data-bind="user.experience"></textarea>
+                                <label for="experience">Work Experience</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education & Achievements -->
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+                            <i class="fas fa-graduation-cap text-primary mr-2"></i>Education & Achievements
+                        </h2>
+                        
+                        <div class="space-y-6">
+                            <div class="form-floating">
+                                <textarea id="education" name="education" placeholder=" " rows="3" data-bind="user.education"></textarea>
+                                <label for="education">Education Background</label>
+                            </div>
+                            
+                            <div class="form-floating">
+                                <textarea id="achievements" name="achievements" placeholder=" " rows="3" data-bind="user.achievements"></textarea>
+                                <label for="achievements">Achievements & Awards</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Photo Upload -->
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+                            <i class="fas fa-camera text-primary mr-2"></i>Profile Photo
+                        </h2>
+                        
+                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-primary transition-colors">
+                            <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-4"></i>
+                            <p class="text-lg text-gray-600 mb-2">Click to upload or drag and drop</p>
+                            <p class="text-sm text-gray-500">PNG, JPG up to 5MB</p>
+                            <input type="file" id="profile-photo" name="profile-photo" accept="image/*" class="hidden" data-implementation="Use FileUpload component here">
+                            <button type="button" class="mt-4 bg-primary text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors" onclick="document.getElementById('profile-photo').click()">
+                                Choose File
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="flex justify-center space-x-4 pt-8">
+                        <button type="button" class="px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium">
+                            Save as Draft
+                        </button>
+                        <button type="submit" class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-blue-700 transition-colors font-medium shadow-lg" data-event="click:handleSubmit" data-implementation="Should validate form before submission">
+                            <i class="fas fa-check-circle mr-2"></i>Create Profile
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: Bio-data Submission Form Section -->
+
+<!-- @COMPONENT: Sample Profile Page Section -->
+<section id="sample-profile" class="section hide-section">
+    <div class="min-h-screen bg-gray-50 py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Profile Header -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                <div class="bg-gradient-to-r from-primary to-blue-600 h-32"></div>
+                <div class="relative px-8 pb-8">
+                    <div class="flex flex-col md:flex-row items-start md:items-end -mt-16 mb-6">
+                        <!-- Professional headshot of a confident business person in formal attire -->
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=400" alt="John Doe Profile Photo" class="w-32 h-32 rounded-full border-4 border-white shadow-lg object-cover">
+                        <div class="md:ml-6 mt-4 md:mt-0 flex-1">
+                            <h1 class="text-3xl font-bold text-gray-900" data-bind="user.name">John Doe</h1>
+                            <p class="text-xl text-primary font-medium" data-bind="user.profession">Senior Software Engineer</p>
+                            <p class="text-gray-600 mt-2">Age: <span data-bind="user.age">28</span></p>
+                        </div>
+                        <div class="mt-4 md:mt-0">
+                            <button class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                <i class="fas fa-download mr-2"></i>Download CV
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                    <i class="fas fa-address-card text-primary mr-3"></i>Contact Information
+                </h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-envelope text-gray-400"></i>
+                        <span data-bind="user.email">john.doe@email.com</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-phone text-gray-400"></i>
+                        <span data-bind="user.phone">+1 (555) 123-4567</span>
+                    </div>
+                    <div class="flex items-start space-x-3 md:col-span-2">
+                        <i class="fas fa-map-marker-alt text-gray-400 mt-1"></i>
+                        <span data-bind="user.address">123 Tech Street, San Francisco, CA 94105, USA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                    <i class="fas fa-cogs text-primary mr-3"></i>Skills
+                </h2>
+                <!-- @MAP: skills.map(skill => ( -->
+                <div class="flex flex-wrap gap-3" data-bind="user.skills">
+                    <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">JavaScript</span>
+                    <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">React</span>
+                    <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Node.js</span>
+                    <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Python</span>
+                    <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">MongoDB</span>
+                    <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">AWS</span>
+                    <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Docker</span>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+
+            <!-- Work Experience -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                    <i class="fas fa-briefcase text-primary mr-3"></i>Work Experience
+                </h2>
+                <div class="space-y-6" data-bind="user.experience">
+                    <div class="border-l-4 border-primary pl-6">
+                        <h3 class="text-lg font-semibold text-gray-900">Senior Software Engineer</h3>
+                        <p class="text-primary font-medium">TechCorp Inc. • 2021 - Present</p>
+                        <p class="text-gray-600 mt-2">Lead development of scalable web applications using React and Node.js. Managed a team of 5 developers and delivered 3 major product releases.</p>
+                    </div>
+                    <div class="border-l-4 border-gray-300 pl-6">
+                        <h3 class="text-lg font-semibold text-gray-900">Software Engineer</h3>
+                        <p class="text-gray-600 font-medium">StartupXYZ • 2019 - 2021</p>
+                        <p class="text-gray-600 mt-2">Developed and maintained full-stack applications. Implemented CI/CD pipelines and improved deployment efficiency by 40%.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                    <i class="fas fa-graduation-cap text-primary mr-3"></i>Education
+                </h2>
+                <div class="space-y-4" data-bind="user.education">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900">Bachelor of Science in Computer Science</h3>
+                        <p class="text-gray-600">University of California, Berkeley • 2015 - 2019</p>
+                        <p class="text-gray-600 mt-1">GPA: 3.8/4.0 • Magna Cum Laude</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements -->
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                    <i class="fas fa-trophy text-primary mr-3"></i>Achievements & Awards
+                </h2>
+                <div class="space-y-4" data-bind="user.achievements">
+                    <div class="flex items-start space-x-3">
+                        <i class="fas fa-medal text-yellow-500 mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-900">Employee of the Year 2022</h3>
+                            <p class="text-gray-600">Recognized for outstanding performance and leadership at TechCorp Inc.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <i class="fas fa-award text-blue-500 mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-900">AWS Certified Solutions Architect</h3>
+                            <p class="text-gray-600">Professional level certification in cloud architecture and solutions design.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <i class="fas fa-code text-green-500 mt-1"></i>
+                        <div>
+                            <h3 class="font-semibold text-gray-900">Open Source Contributor</h3>
+                            <p class="text-gray-600">Active contributor to React and Node.js ecosystems with 500+ GitHub stars.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: Sample Profile Page Section -->
+
+<!-- @COMPONENT: Admin Panel Section -->
+<section id="admin-panel" class="section hide-section">
+    <div class="min-h-screen bg-gray-50">
+        <!-- Admin Header -->
+        <div class="bg-white border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div>
+                        <h1 class="text-2xl font-semibold text-gray-900">Admin Panel</h1>
+                        <p class="text-sm text-gray-600">Manage user profiles and platform settings</p>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-sm text-gray-600">Welcome, Admin</span>
+                        <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                            <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600">Total Profiles</p>
+                            <p class="text-3xl font-bold text-gray-900">1,247</p>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-users text-blue-600 text-xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-sm text-green-600 mt-2">
+                        <i class="fas fa-arrow-up mr-1"></i>12% from last month
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600">Active Profiles</p>
+                            <p class="text-3xl font-bold text-gray-900">1,189</p>
+                        </div>
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user-check text-green-600 text-xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-sm text-green-600 mt-2">
+                        <i class="fas fa-arrow-up mr-1"></i>8% from last month
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600">Pending Review</p>
+                            <p class="text-3xl font-bold text-gray-900">23</p>
+                        </div>
+                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-clock text-yellow-600 text-xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-sm text-yellow-600 mt-2">
+                        <i class="fas fa-exclamation-triangle mr-1"></i>Needs attention
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600">Spam Reports</p>
+                            <p class="text-3xl font-bold text-gray-900">12</p>
+                        </div>
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-flag text-red-600 text-xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-sm text-red-600 mt-2">
+                        <i class="fas fa-arrow-down mr-1"></i>2% from last month
+                    </p>
+                </div>
+            </div>
+
+            <!-- Filters and Search -->
+            <div class="bg-white rounded-xl shadow-sm p-6 mb-8">
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <div class="relative">
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            <input type="text" placeholder="Search profiles..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option>All Status</option>
+                            <option>Active</option>
+                            <option>Pending</option>
+                            <option>Suspended</option>
+                        </select>
+                        <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option>All Professions</option>
+                            <option>Software Engineer</option>
+                            <option>Designer</option>
+                            <option>Marketing</option>
+                        </select>
+                    </div>
+                    <div class="flex space-x-3">
+                        <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-download mr-2"></i>Export
+                        </button>
+                        <button class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                            <i class="fas fa-plus mr-2"></i>Add Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profiles Table -->
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-200">
+                    <h2 class="text-lg font-semibold text-gray-900">User Profiles</h2>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <input type="checkbox" class="rounded border-gray-300 text-primary focus:ring-primary">
+                                </th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Profile</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Profession</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Created</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <!-- @MAP: profiles.map(profile => ( -->
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="checkbox" class="rounded border-gray-300 text-primary focus:ring-primary">
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <!-- Professional headshot of a businesswoman with confidence -->
+                                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b371?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150" alt="Sarah Johnson" class="w-10 h-10 rounded-full object-cover">
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">Sarah Johnson</div>
+                                            <div class="text-sm text-gray-500">@sarah-johnson</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">sarah.johnson@email.com</div>
+                                    <div class="text-sm text-gray-500">+1 (555) 987-6543</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">UX Designer</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">Active</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    Jan 15, 2024
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm space-x-2">
+                                    <button class="text-primary hover:text-blue-700 transition-colors">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-700 transition-colors">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-700 transition-colors">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="checkbox" class="rounded border-gray-300 text-primary focus:ring-primary">
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <!-- Professional headshot of a businessman in a suit -->
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150" alt="Michael Chen" class="w-10 h-10 rounded-full object-cover">
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">Michael Chen</div>
+                                            <div class="text-sm text-gray-500">@michael-chen</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">m.chen@techcorp.com</div>
+                                    <div class="text-sm text-gray-500">+1 (555) 456-7890</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">Product Manager</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex px-2 py-1 text-xs font-semibold bg-yellow-100 text-yellow-800 rounded-full">Pending</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    Jan 18, 2024
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm space-x-2">
+                                    <button class="text-primary hover:text-blue-700 transition-colors">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-700 transition-colors">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-700 transition-colors">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <input type="checkbox" class="rounded border-gray-300 text-primary focus:ring-primary">
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <!-- Professional headshot of a female professional with glasses -->
+                                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150" alt="Emma Rodriguez" class="w-10 h-10 rounded-full object-cover">
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">Emma Rodriguez</div>
+                                            <div class="text-sm text-gray-500">@emma-rodriguez</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">emma.r@startup.com</div>
+                                    <div class="text-sm text-gray-500">+1 (555) 234-5678</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-sm text-gray-900">Data Scientist</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">Active</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    Jan 12, 2024
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm space-x-2">
+                                    <button class="text-primary hover:text-blue-700 transition-colors">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-green-600 hover:text-green-700 transition-colors">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-700 transition-colors">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- @END_MAP )) -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center text-sm text-gray-700">
+                            Showing <span class="font-medium">1</span> to <span class="font-medium">10</span> of <span class="font-medium">97</span> results
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button class="px-3 py-1 border border-gray-300 rounded-md text-sm hover:bg-gray-50 transition-colors">Previous</button>
+                            <button class="px-3 py-1 bg-primary text-white rounded-md text-sm">1</button>
+                            <button class="px-3 py-1 border border-gray-300 rounded-md text-sm hover:bg-gray-50 transition-colors">2</button>
+                            <button class="px-3 py-1 border border-gray-300 rounded-md text-sm hover:bg-gray-50 transition-colors">3</button>
+                            <button class="px-3 py-1 border border-gray-300 rounded-md text-sm hover:bg-gray-50 transition-colors">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: Admin Panel Section -->
+
+<!-- @COMPONENT: Footer -->
+<footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8">
+            <div class="md:col-span-2">
+                <h3 class="text-2xl font-bold mb-4">
+                    <i class="fas fa-user-circle mr-2"></i>Show Yourself
+                </h3>
+                <p class="text-gray-300 mb-4 max-w-md">
+                    Create professional bio-data profiles that are SEO-optimized and easily discoverable by potential employers and clients.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                        <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Create Profile</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Browse Profiles</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">SEO Tips</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Success Stories</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Support</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Help Center</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Terms of Service</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+            <p class="text-gray-300">&copy; 2024 Show Yourself. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+<!-- @END_COMPONENT: Footer -->
+
+<script>
+(function() {
+    // Navigation functionality
+    function initNavigation() {
+        const navLinks = document.querySelectorAll('[data-section]');
+        const sections = document.querySelectorAll('.section');
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        // Show specific section
+        function showSection(sectionId) {
+            sections.forEach(section => {
+                if (section.id === sectionId) {
+                    section.classList.remove('hide-section');
+                } else {
+                    section.classList.add('hide-section');
+                }
+            });
+        }
+
+        // Handle navigation clicks
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetSection = link.getAttribute('data-section');
+                showSection(targetSection);
+                
+                // Close mobile menu if open
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Handle mobile menu toggle
+        if (mobileMenuToggle && mobileMenu) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Handle "Create Profile" buttons
+        const createProfileBtns = document.querySelectorAll('.create-profile-btn');
+        createProfileBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                showSection('create-profile');
+            });
+        });
+
+        // Show homepage by default
+        showSection('homepage');
+    }
+
+    // Form handling
+    function initFormHandling() {
+        const form = document.getElementById('bio-data-form');
+        
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // TODO: Implement form validation
+                // TODO: Implement API call to save bio-data
+                // TODO: Generate unique profile URL
+                
+                // Simulate form submission
+                alert('Profile created successfully! You will be redirected to your public profile.');
+                
+                // TODO: Redirect to generated profile page
+                console.log('Form submitted with data:', new FormData(form));
+            });
+        }
+    }
+
+    // File upload handling
+    function initFileUpload() {
+        const fileInput = document.getElementById('profile-photo');
+        
+        if (fileInput) {
+            fileInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    // TODO: Implement file validation (size, type)
+                    // TODO: Implement file upload to server
+                    // TODO: Show preview of uploaded image
+                    
+                    console.log('File selected:', file.name);
+                }
+            });
+        }
+    }
+
+    // Admin panel functionality
+    function initAdminPanel() {
+        // TODO: Implement admin authentication
+        // TODO: Implement profile management functions
+        // TODO: Implement search and filter functionality
+        // TODO: Implement bulk actions
+        
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                // TODO: Handle bulk selection
+                console.log('Checkbox changed:', checkbox.checked);
+            });
+        });
+    }
+
+    // Initialize all functionality when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        initNavigation();
+        initFormHandling();
+        initFileUpload();
+        initAdminPanel();
+    });
+})();
+</script>
+
+</body>
+</html>

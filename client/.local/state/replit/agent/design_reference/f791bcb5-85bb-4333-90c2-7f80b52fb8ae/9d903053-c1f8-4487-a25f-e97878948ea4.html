@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Yourself - Upload Your Bio-Data & Build Your Public Profile</title>
+    <meta name="description" content="Upload your bio-data, build your public profile, and get visible on Google. Create professional profiles that showcase your skills, achievements, and experience.">
+    <meta name="keywords" content="bio-data, professional profile, resume, CV, career, skills, achievements">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Show Yourself - Build Your Professional Profile">
+    <meta property="og:description" content="Upload your bio-data and create a professional public profile visible on Google.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://showyourself.com">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Show Yourself",
+        "description": "Professional bio-data and profile creation platform",
+        "url": "https://showyourself.com"
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    'inter': ['Inter', 'sans-serif'],
+                },
+                colors: {
+                    primary: {
+                        50: '#eff6ff',
+                        500: '#3b82f6',
+                        600: '#2563eb',
+                        700: '#1d4ed8'
+                    }
+                }
+            }
+        }
+    };
+    </script>
+
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .animate-logo-float {
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+        
+        .profile-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .profile-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="font-inter bg-slate-50 text-gray-900">
+
+<!-- @COMPONENT: Navigation -->
+<nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center">
+                <div class="animate-logo-float">
+                    <i class="fas fa-user-circle text-primary-600 text-2xl mr-2"></i>
+                </div>
+                <h1 class="text-xl font-bold text-gray-900">Show Yourself</h1>
+            </div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#" class="text-gray-600 hover:text-primary-600 font-medium transition-colors duration-200" data-event="click:navigateToHome">Home</a>
+                <a href="#profiles" class="text-gray-600 hover:text-primary-600 font-medium transition-colors duration-200" data-event="click:navigateToProfiles">Browse Profiles</a>
+                <button class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200 font-medium" 
+                        data-event="click:navigateToCreateProfile" data-implementation="Navigate to /create-profile">
+                    Create Profile
+                </button>
+            </div>
+            <div class="md:hidden">
+                <button class="text-gray-600 hover:text-primary-600" data-event="click:toggleMobileMenu">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- @END_COMPONENT: Navigation -->
+
+<!-- @COMPONENT: HeroSection -->
+<section class="bg-gradient-to-br from-primary-50 to-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center animate-fade-in-up">
+            <div class="mb-8">
+                <div class="animate-logo-float inline-block">
+                    <i class="fas fa-users text-primary-600 text-6xl mb-4"></i>
+                </div>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                Show Yourself
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Upload your bio-data, build your public profile, and get visible on Google
+            </p>
+            <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
+                <button class="w-full sm:w-auto bg-primary-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary-700 transform hover:scale-105 transition-all duration-200 shadow-lg" 
+                        data-event="click:navigateToCreateProfile" data-implementation="Navigate to /create-profile">
+                    <i class="fas fa-plus mr-2"></i>Create Your Profile
+                </button>
+                <button class="w-full sm:w-auto border-2 border-primary-600 text-primary-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary-600 hover:text-white transition-all duration-200" 
+                        data-event="click:scrollToProfiles">
+                    <i class="fas fa-search mr-2"></i>Browse Profiles
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: HeroSection -->
+
+<!-- @COMPONENT: FeaturesSection -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose Show Yourself?</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Professional profiles that get noticed by employers and collaborators worldwide</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center p-6 rounded-2xl hover:shadow-lg transition-shadow duration-300">
+                <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-search text-green-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">SEO Optimized</h3>
+                <p class="text-gray-600">Your profile appears in Google search results with proper meta tags and structured data</p>
+            </div>
+            <div class="text-center p-6 rounded-2xl hover:shadow-lg transition-shadow duration-300">
+                <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-mobile-alt text-blue-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Mobile Friendly</h3>
+                <p class="text-gray-600">Responsive design ensures your profile looks perfect on all devices</p>
+            </div>
+            <div class="text-center p-6 rounded-2xl hover:shadow-lg transition-shadow duration-300">
+                <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-share-alt text-purple-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Easy Sharing</h3>
+                <p class="text-gray-600">Share your unique profile URL on social media and professional networks</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: FeaturesSection -->
+
+<!-- @COMPONENT: ProfilesSection -->
+<section id="profiles" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Profiles</h2>
+                <p class="text-xl text-gray-600">Discover talented professionals from around the world</p>
+            </div>
+            <div class="mt-6 md:mt-0">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="relative">
+                        <input type="text" 
+                               placeholder="Search profiles..." 
+                               class="w-full sm:w-80 pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all duration-200"
+                               data-implementation="Implement search functionality">
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                    <select class="px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all duration-200"
+                            data-implementation="Filter by profession">
+                        <option>All Professions</option>
+                        <option>Software Developer</option>
+                        <option>Designer</option>
+                        <option>Marketing</option>
+                        <option>Sales</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Grid -->
+        <!-- @MAP: profiles.map(profile => ( -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-mock="true">
+            <!-- Profile Card 1 -->
+            <div class="profile-card bg-white rounded-2xl shadow-sm hover:shadow-xl p-6 border border-gray-200">
+                <!-- Professional headshot of a confident business woman in modern office setting -->
+                <img src="https://pixabay.com/get/g2f6c11535df46dd3a75ddb5aae32c7f0bd2f8285e6ef269d6d7a4a317a62f44f4117c67fe8476d18e30c486d61583ec924d25f0c4a4b0c8b69a2bec9fdb0cb97_1280.jpg" 
+                     alt="Sarah Johnson Profile Photo" 
+                     class="w-20 h-20 rounded-full object-cover mx-auto mb-4 border-4 border-primary-100"
+                     data-mock-image="true" data-implementation="User uploaded profile photo">
+                <div class="text-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 mb-1" data-bind="profile.name" data-mock="true">Sarah Johnson</h3>
+                    <p class="text-primary-600 font-medium" data-bind="profile.profession" data-mock="true">Senior Software Engineer</p>
+                    <p class="text-gray-500 text-sm" data-bind="profile.location" data-mock="true">San Francisco, CA</p>
+                </div>
+                <div class="mb-4">
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">React</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">Node.js</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">Python</span>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm text-center mb-6 line-clamp-3" data-bind="profile.summary" data-mock="true">
+                    Experienced full-stack developer with 8+ years building scalable web applications. Passionate about clean code and user experience.
+                </p>
+                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-briefcase mr-1"></i>
+                        <span data-bind="profile.experience" data-mock="true">8+ Years</span>
+                    </div>
+                    <a href="/profile/sarah-johnson" 
+                       class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200 text-sm font-medium"
+                       data-event="click:viewProfile" data-implementation="Navigate to individual profile page">
+                        View Profile
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Card 2 -->
+            <div class="profile-card bg-white rounded-2xl shadow-sm hover:shadow-xl p-6 border border-gray-200">
+                <!-- Professional headshot of a creative male designer with modern workspace background -->
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150" 
+                     alt="Michael Chen Profile Photo" 
+                     class="w-20 h-20 rounded-full object-cover mx-auto mb-4 border-4 border-primary-100"
+                     data-mock-image="true" data-implementation="User uploaded profile photo">
+                <div class="text-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 mb-1" data-bind="profile.name" data-mock="true">Michael Chen</h3>
+                    <p class="text-primary-600 font-medium" data-bind="profile.profession" data-mock="true">UX/UI Designer</p>
+                    <p class="text-gray-500 text-sm" data-bind="profile.location" data-mock="true">New York, NY</p>
+                </div>
+                <div class="mb-4">
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">Figma</span>
+                        <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">Adobe XD</span>
+                        <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">Sketch</span>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm text-center mb-6 line-clamp-3" data-bind="profile.summary" data-mock="true">
+                    Creative designer focused on user-centered design principles. Specialized in creating intuitive interfaces for mobile and web applications.
+                </p>
+                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-briefcase mr-1"></i>
+                        <span data-bind="profile.experience" data-mock="true">5+ Years</span>
+                    </div>
+                    <a href="/profile/michael-chen" 
+                       class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200 text-sm font-medium"
+                       data-event="click:viewProfile" data-implementation="Navigate to individual profile page">
+                        View Profile
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Card 3 -->
+            <div class="profile-card bg-white rounded-2xl shadow-sm hover:shadow-xl p-6 border border-gray-200">
+                <!-- Professional headshot of a confident female marketing professional in business attire -->
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150" 
+                     alt="Emily Rodriguez Profile Photo" 
+                     class="w-20 h-20 rounded-full object-cover mx-auto mb-4 border-4 border-primary-100"
+                     data-mock-image="true" data-implementation="User uploaded profile photo">
+                <div class="text-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 mb-1" data-bind="profile.name" data-mock="true">Emily Rodriguez</h3>
+                    <p class="text-primary-600 font-medium" data-bind="profile.profession" data-mock="true">Marketing Manager</p>
+                    <p class="text-gray-500 text-sm" data-bind="profile.location" data-mock="true">Austin, TX</p>
+                </div>
+                <div class="mb-4">
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">Digital Marketing</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">SEO</span>
+                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">Analytics</span>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm text-center mb-6 line-clamp-3" data-bind="profile.summary" data-mock="true">
+                    Results-driven marketing professional with expertise in digital campaigns, brand strategy, and data-driven growth initiatives.
+                </p>
+                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-briefcase mr-1"></i>
+                        <span data-bind="profile.experience" data-mock="true">6+ Years</span>
+                    </div>
+                    <a href="/profile/emily-rodriguez" 
+                       class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200 text-sm font-medium"
+                       data-event="click:viewProfile" data-implementation="Navigate to individual profile page">
+                        View Profile
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Card 4 -->
+            <div class="profile-card bg-white rounded-2xl shadow-sm hover:shadow-xl p-6 border border-gray-200">
+                <!-- Professional headshot of a data scientist with tech office background -->
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150" 
+                     alt="David Kumar Profile Photo" 
+                     class="w-20 h-20 rounded-full object-cover mx-auto mb-4 border-4 border-primary-100"
+                     data-mock-image="true" data-implementation="User uploaded profile photo">
+                <div class="text-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 mb-1" data-bind="profile.name" data-mock="true">David Kumar</h3>
+                    <p class="text-primary-600 font-medium" data-bind="profile.profession" data-mock="true">Data Scientist</p>
+                    <p class="text-gray-500 text-sm" data-bind="profile.location" data-mock="true">Seattle, WA</p>
+                </div>
+                <div class="mb-4">
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">Python</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">Machine Learning</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">SQL</span>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm text-center mb-6 line-clamp-3" data-bind="profile.summary" data-mock="true">
+                    Data scientist with expertise in machine learning, statistical analysis, and building predictive models for business insights.
+                </p>
+                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-briefcase mr-1"></i>
+                        <span data-bind="profile.experience" data-mock="true">4+ Years</span>
+                    </div>
+                    <a href="/profile/david-kumar" 
+                       class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200 text-sm font-medium"
+                       data-event="click:viewProfile" data-implementation="Navigate to individual profile page">
+                        View Profile
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Card 5 -->
+            <div class="profile-card bg-white rounded-2xl shadow-sm hover:shadow-xl p-6 border border-gray-200">
+                <!-- Professional headshot of a business consultant in corporate setting -->
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150" 
+                     alt="James Thompson Profile Photo" 
+                     class="w-20 h-20 rounded-full object-cover mx-auto mb-4 border-4 border-primary-100"
+                     data-mock-image="true" data-implementation="User uploaded profile photo">
+                <div class="text-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 mb-1" data-bind="profile.name" data-mock="true">James Thompson</h3>
+                    <p class="text-primary-600 font-medium" data-bind="profile.profession" data-mock="true">Business Consultant</p>
+                    <p class="text-gray-500 text-sm" data-bind="profile.location" data-mock="true">Chicago, IL</p>
+                </div>
+                <div class="mb-4">
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">Strategy</span>
+                        <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">Operations</span>
+                        <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">Finance</span>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm text-center mb-6 line-clamp-3" data-bind="profile.summary" data-mock="true">
+                    Strategic business consultant helping companies optimize operations, develop growth strategies, and improve financial performance.
+                </p>
+                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-briefcase mr-1"></i>
+                        <span data-bind="profile.experience" data-mock="true">12+ Years</span>
+                    </div>
+                    <a href="/profile/james-thompson" 
+                       class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200 text-sm font-medium"
+                       data-event="click:viewProfile" data-implementation="Navigate to individual profile page">
+                        View Profile
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Card 6 -->
+            <div class="profile-card bg-white rounded-2xl shadow-sm hover:shadow-xl p-6 border border-gray-200">
+                <!-- Professional headshot of a female product manager with innovative tech background -->
+                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150" 
+                     alt="Lisa Park Profile Photo" 
+                     class="w-20 h-20 rounded-full object-cover mx-auto mb-4 border-4 border-primary-100"
+                     data-mock-image="true" data-implementation="User uploaded profile photo">
+                <div class="text-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 mb-1" data-bind="profile.name" data-mock="true">Lisa Park</h3>
+                    <p class="text-primary-600 font-medium" data-bind="profile.profession" data-mock="true">Product Manager</p>
+                    <p class="text-gray-500 text-sm" data-bind="profile.location" data-mock="true">Los Angeles, CA</p>
+                </div>
+                <div class="mb-4">
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="bg-violet-100 text-violet-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">Product Strategy</span>
+                        <span class="bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">Agile</span>
+                        <span class="bg-rose-100 text-rose-800 px-3 py-1 rounded-full text-sm font-medium" data-mock="true">User Research</span>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm text-center mb-6 line-clamp-3" data-bind="profile.summary" data-mock="true">
+                    Product manager with a track record of launching successful digital products. Expert in user research, agile methodologies, and cross-functional team leadership.
+                </p>
+                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div class="flex items-center text-gray-500 text-sm">
+                        <i class="fas fa-briefcase mr-1"></i>
+                        <span data-bind="profile.experience" data-mock="true">7+ Years</span>
+                    </div>
+                    <a href="/profile/lisa-park" 
+                       class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200 text-sm font-medium"
+                       data-event="click:viewProfile" data-implementation="Navigate to individual profile page">
+                        View Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- @END_MAP )) -->
+
+        <!-- Pagination -->
+        <div class="mt-12 flex justify-center">
+            <div class="flex items-center space-x-2">
+                <button class="px-3 py-2 rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-50 transition-colors duration-200" 
+                        data-event="click:previousPage" data-implementation="Handle pagination">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="px-4 py-2 rounded-lg bg-primary-600 text-white font-medium" data-mock="true">1</button>
+                <button class="px-4 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors duration-200" 
+                        data-event="click:goToPage" data-implementation="Handle pagination" data-mock="true">2</button>
+                <button class="px-4 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors duration-200" 
+                        data-event="click:goToPage" data-implementation="Handle pagination" data-mock="true">3</button>
+                <span class="px-2 text-gray-500">...</span>
+                <button class="px-4 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors duration-200" 
+                        data-event="click:goToPage" data-implementation="Handle pagination" data-mock="true">15</button>
+                <button class="px-3 py-2 rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-50 transition-colors duration-200" 
+                        data-event="click:nextPage" data-implementation="Handle pagination">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: ProfilesSection -->
+
+<!-- @COMPONENT: CreateProfileFormSection -->
+<section class="py-20 bg-white" id="create-profile" style="display: none;" data-implementation="Toggle visibility based on navigation">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Create Your Professional Profile</h2>
+            <p class="text-xl text-gray-600">Fill out the form below to create your public bio-data profile</p>
+        </div>
+
+        <form class="bg-white rounded-2xl shadow-xl border border-gray-200 p-8" data-event="submit:handleFormSubmit" data-implementation="Handle form submission and validation">
+            <!-- Profile Photo Upload -->
+            <div class="mb-8">
+                <label class="block text-sm font-semibold text-gray-700 mb-3">Profile Photo</label>
+                <div class="flex items-center space-x-6">
+                    <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center border-2 border-dashed border-gray-300">
+                        <i class="fas fa-camera text-gray-400 text-2xl"></i>
+                    </div>
+                    <div>
+                        <input type="file" 
+                               accept="image/*" 
+                               class="hidden" 
+                               id="profile-photo" 
+                               data-implementation="Handle file upload">
+                        <label for="profile-photo" 
+                               class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200 cursor-pointer font-medium">
+                            Upload Photo
+                        </label>
+                        <p class="text-sm text-gray-500 mt-2">JPG, PNG or GIF. Max size 5MB.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Information -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div>
+                    <label for="full-name" class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+                    <input type="text" 
+                           id="full-name" 
+                           required
+                           class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all duration-200"
+                           placeholder="Enter your full name"
+                           data-implementation="Required field validation">
+                </div>
+                <div>
+                    <label for="age" class="block text-sm font-semibold text-gray-700 mb-2">Age</label>
+                    <input type="number" 
+                           id="age" 
+                           min="18" max="100"
+                           class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all duration-200"
+                           placeholder="Enter your age"
+                           data-implementation="Number validation">
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div>
+                    <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+                    <input type="email" 
+                           id="email" 
+                           required
+                           class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all duration-200"
+                           placeholder="your.email@example.com"
+                           data-implementation="Email validation">
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+                    <input type="tel" 
+                           id="phone" 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all duration-200"
+                           placeholder="+1 (555) 123-4567"
+                           data-implementation="Phone validation">
+                </div>
+            </div>
+
+            <!-- Address -->
+            <div class="mb-8">
+                <label for="address" class="block text-sm font-semibold text-gray-700 mb-2">Address</label>
+                <input type="text" 
+                       id="address" 
+                       class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all duration-200"
+                       placeholder="City, State, Country"
+                       data-implementation="Address input">
+            </div>
+
+            <!-- Professional Information -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div>
+                    <label for="profession" class="block text-sm font-semibold text-gray-700 mb-2">Profession *</label>
+                    <input type="text" 
+                           id="profession" 
+                           required
+                           class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all duration-200"
+                           placeholder="e.g., Software Engineer"
+                           data-implementation="Required field validation">
+                </div>
+                <div>
+                    <label for="experience" class="block text-sm font-semibold text-gray-700 mb-2">Years of Experience</label>
+                    <select id="experience" 
+                            class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all duration-200">
+                        <option value="">Select experience</option>
+                        <option value="0-1">0-1 years</option>
+                        <option value="2-5">2-5 years</option>
+                        <option value="6-10">6-10 years</option>
+                        <option value="10+">10+ years</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="mb-8">
+                <label for="skills" class="block text-sm font-semibold text-gray-700 mb-2">Skills</label>
+                <input type="text" 
+                       id="skills" 
+                       class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all duration-200"
+                       placeholder="e.g., JavaScript, React, Node.js, Python (comma separated)"
+                       data-implementation="Skills parsing for tags">
+                <p class="text-sm text-gray-500 mt-1">Separate skills with commas</p>
+            </div>
+
+            <!-- Education -->
+            <div class="mb-8">
+                <label for="education" class="block text-sm font-semibold text-gray-700 mb-2">Education</label>
+                <textarea id="education" 
+                          rows="3"
+                          class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all duration-200 resize-none"
+                          placeholder="e.g., Bachelor's in Computer Science, XYZ University (2018-2022)"
+                          data-implementation="Education text input"></textarea>
+            </div>
+
+            <!-- Work Experience -->
+            <div class="mb-8">
+                <label for="work-experience" class="block text-sm font-semibold text-gray-700 mb-2">Work Experience</label>
+                <textarea id="work-experience" 
+                          rows="4"
+                          class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all duration-200 resize-none"
+                          placeholder="Describe your work experience, roles, and responsibilities..."
+                          data-implementation="Work experience text input"></textarea>
+            </div>
+
+            <!-- Achievements -->
+            <div class="mb-8">
+                <label for="achievements" class="block text-sm font-semibold text-gray-700 mb-2">Achievements</label>
+                <textarea id="achievements" 
+                          rows="3"
+                          class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all duration-200 resize-none"
+                          placeholder="List your key achievements, awards, certifications..."
+                          data-implementation="Achievements text input"></textarea>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-200">
+                <button type="submit" 
+                        class="flex-1 bg-primary-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary-700 transform hover:scale-[1.02] transition-all duration-200 shadow-lg"
+                        data-event="click:submitProfile" data-implementation="Process form submission and create profile">
+                    <i class="fas fa-plus mr-2"></i>Create My Profile
+                </button>
+                <button type="button" 
+                        class="flex-1 sm:flex-none border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-50 transition-all duration-200"
+                        data-event="click:previewProfile" data-implementation="Show profile preview">
+                    <i class="fas fa-eye mr-2"></i>Preview
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+<!-- @END_COMPONENT: CreateProfileFormSection -->
+
+<!-- @COMPONENT: IndividualProfilePage -->
+<section class="py-20 bg-slate-50" id="individual-profile" style="display: none;" data-implementation="Show when viewing individual profile">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Profile Header -->
+        <div class="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 mb-8">
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                <!-- Professional headshot placeholder for individual profile -->
+                <img src="https://pixabay.com/get/g96588dec3e0087096fc6ae28cc50d28134745787f00e2f477915ad8ede3daa88950be03f1893dea088f913651033243f7384ede49a3eb2912fc95b8db591dcd9_1280.jpg" 
+                     alt="Profile Photo" 
+                     class="w-32 h-32 rounded-2xl object-cover border-4 border-primary-100"
+                     data-bind="profile.photo" data-mock-image="true">
+                <div class="flex-1 text-center md:text-left">
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2" data-bind="profile.name" data-mock="true">Sarah Johnson</h1>
+                    <p class="text-xl text-primary-600 font-semibold mb-2" data-bind="profile.profession" data-mock="true">Senior Software Engineer</p>
+                    <p class="text-gray-600 mb-4" data-bind="profile.location" data-mock="true">San Francisco, CA</p>
+                    
+                    <!-- Contact Information -->
+                    <div class="flex flex-col sm:flex-row gap-4 text-sm text-gray-600">
+                        <div class="flex items-center" data-bind="profile.email" data-mock="true">
+                            <i class="fas fa-envelope mr-2 text-primary-600"></i>
+                            sarah.johnson@email.com
+                        </div>
+                        <div class="flex items-center" data-bind="profile.phone" data-mock="true">
+                            <i class="fas fa-phone mr-2 text-primary-600"></i>
+                            +1 (555) 123-4567
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Main Content -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- About Section -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-4">About</h2>
+                    <p class="text-gray-700 leading-relaxed" data-bind="profile.summary" data-mock="true">
+                        Experienced full-stack developer with 8+ years building scalable web applications. Passionate about clean code, user experience, and mentoring junior developers. Currently focused on React, Node.js, and cloud architecture.
+                    </p>
+                </div>
+
+                <!-- Experience Section -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-6">Work Experience</h2>
+                    <div class="space-y-6" data-bind="profile.experience" data-mock="true">
+                        <div class="border-l-2 border-primary-600 pl-4">
+                            <h3 class="font-semibold text-gray-900">Senior Software Engineer</h3>
+                            <p class="text-primary-600 font-medium">Tech Solutions Inc.</p>
+                            <p class="text-sm text-gray-500 mb-2">2020 - Present</p>
+                            <p class="text-gray-700 text-sm">Lead development of React-based web applications serving 100k+ users. Implemented CI/CD pipelines and mentored team of 5 junior developers.</p>
+                        </div>
+                        <div class="border-l-2 border-gray-300 pl-4">
+                            <h3 class="font-semibold text-gray-900">Software Engineer</h3>
+                            <p class="text-gray-600 font-medium">StartupXYZ</p>
+                            <p class="text-sm text-gray-500 mb-2">2018 - 2020</p>
+                            <p class="text-gray-700 text-sm">Developed full-stack applications using MERN stack. Collaborated with design team to implement responsive user interfaces.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Section -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-4">Education</h2>
+                    <div data-bind="profile.education" data-mock="true">
+                        <h3 class="font-semibold text-gray-900">Bachelor of Computer Science</h3>
+                        <p class="text-gray-600 font-medium">University of California, Berkeley</p>
+                        <p class="text-sm text-gray-500">2014 - 2018</p>
+                    </div>
+                </div>
+
+                <!-- Achievements Section -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-4">Achievements</h2>
+                    <ul class="space-y-2 text-gray-700" data-bind="profile.achievements" data-mock="true">
+                        <li class="flex items-start">
+                            <i class="fas fa-trophy text-yellow-500 mr-3 mt-1"></i>
+                            AWS Certified Solutions Architect - Professional (2022)
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-award text-blue-500 mr-3 mt-1"></i>
+                            Employee of the Year - Tech Solutions Inc. (2021)
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-code text-green-500 mr-3 mt-1"></i>
+                            Open source contributor with 500+ GitHub stars
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="space-y-6">
+                <!-- Skills Section -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-4">Skills</h2>
+                    <div class="flex flex-wrap gap-2" data-bind="profile.skills" data-mock="true">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">React</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Node.js</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Python</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">JavaScript</span>
+                        <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">MongoDB</span>
+                        <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">AWS</span>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+                    <div class="space-y-3">
+                        <a href="mailto:sarah.johnson@email.com" 
+                           class="flex items-center text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                           data-bind="profile.email" data-mock="true">
+                            <i class="fas fa-envelope mr-3 text-primary-600"></i>
+                            sarah.johnson@email.com
+                        </a>
+                        <a href="tel:+15551234567" 
+                           class="flex items-center text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                           data-bind="profile.phone" data-mock="true">
+                            <i class="fas fa-phone mr-3 text-primary-600"></i>
+                            +1 (555) 123-4567
+                        </a>
+                        <div class="flex items-center text-gray-600" data-bind="profile.address" data-mock="true">
+                            <i class="fas fa-map-marker-alt mr-3 text-primary-600"></i>
+                            San Francisco, CA, USA
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Share Profile -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-4">Share Profile</h2>
+                    <div class="flex space-x-3">
+                        <button class="flex-1 bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                                data-event="click:shareLinkedIn" data-implementation="Share on LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </button>
+                        <button class="flex-1 bg-blue-400 text-white p-2 rounded-lg hover:bg-blue-500 transition-colors duration-200"
+                                data-event="click:shareTwitter" data-implementation="Share on Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </button>
+                        <button class="flex-1 bg-gray-600 text-white p-2 rounded-lg hover:bg-gray-700 transition-colors duration-200"
+                                data-event="click:copyLink" data-implementation="Copy profile link">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: IndividualProfilePage -->
+
+<!-- @COMPONENT: CallToActionSection -->
+<section class="py-20 bg-primary-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Get Discovered?</h2>
+        <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+            Join thousands of professionals who have created their public profiles and increased their visibility online
+        </p>
+        <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
+            <button class="w-full sm:w-auto bg-white text-primary-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-50 transform hover:scale-105 transition-all duration-200 shadow-lg" 
+                    data-event="click:navigateToCreateProfile" data-implementation="Navigate to profile creation">
+                <i class="fas fa-rocket mr-2"></i>Start Building Now
+            </button>
+            <button class="w-full sm:w-auto border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-primary-600 transition-all duration-200" 
+                    data-event="click:scrollToProfiles">
+                <i class="fas fa-users mr-2"></i>See Examples
+            </button>
+        </div>
+    </div>
+</section>
+<!-- @END_COMPONENT: CallToActionSection -->
+
+<!-- @COMPONENT: Footer -->
+<footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-2">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-user-circle text-primary-500 text-2xl mr-2"></i>
+                    <h3 class="text-xl font-bold">Show Yourself</h3>
+                </div>
+                <p class="text-gray-400 mb-4 max-w-md">
+                    The platform where professionals showcase their skills, experience, and achievements to get discovered by the right opportunities.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                        <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#" class="hover:text-white transition-colors duration-200">Home</a></li>
+                    <li><a href="#profiles" class="hover:text-white transition-colors duration-200">Browse Profiles</a></li>
+                    <li><a href="#create-profile" class="hover:text-white transition-colors duration-200">Create Profile</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors duration-200">About Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Support</h4>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#" class="hover:text-white transition-colors duration-200">Help Center</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors duration-200">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors duration-200">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors duration-200">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 Show Yourself. All rights reserved. Built for professionals who want to be discovered.</p>
+        </div>
+    </div>
+</footer>
+<!-- @END_COMPONENT: Footer -->
+
+<script>
+// TODO: Implement navigation between different sections
+// TODO: Implement form validation and submission
+// TODO: Implement search and filter functionality
+// TODO: Implement profile creation and database storage
+// TODO: Implement file upload functionality
+// TODO: Implement SEO meta tag generation
+// TODO: Implement sitemap generation
+// TODO: Implement social media sharing
+
+// Basic interaction handlers for demo purposes
+(function() {
+    'use strict';
+    
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('[data-event="click:toggleMobileMenu"]');
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            // TODO: Implement mobile menu toggle
+            console.log('Mobile menu toggle clicked');
+        });
+    }
+    
+    // Smooth scrolling for anchor links
+    document.addEventListener('click', function(e) {
+        if (e.target.getAttribute('href') === '#profiles') {
+            e.preventDefault();
+            document.getElementById('profiles').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+    
+    // Form field focus effects
+    const formInputs = document.querySelectorAll('input, textarea, select');
+    formInputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.classList.add('focused');
+        });
+        
+        input.addEventListener('blur', function() {
+            if (!this.value) {
+                this.parentElement.classList.remove('focused');
+            }
+        });
+    });
+    
+    // Profile card hover effects are handled by CSS
+    
+    console.log('Show Yourself - Professional Bio-Data Platform Initialized');
+})();
+</script>
+
+</body>
+</html>
