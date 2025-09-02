@@ -14,9 +14,13 @@ if (!process.env.DATABASE_URL) {
 
 // Read the CA certificate
 const ca = fs.readFileSync(path.join(process.cwd(), "ca.pem")).toString();
+// ...existing code...
 
 export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: { ca }
+  ssl: {
+    ca,
+    rejectUnauthorized: false
+  }
 });
 export const db = drizzle(pool, { schema });
